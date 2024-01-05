@@ -1,0 +1,86 @@
+environment variable should always be in string 
+
+.env file for ourself 
+.env.sample to tell user ,which are the env variables whose value he has to bring
+
+
+slice=>
+       a slice is a way to organize a Redux store, and it often includes reducer functions, actions, and selectors.
+
+
+authSlice.actions =>
+                    you are typically getting an object that contains action creators. These action creators are functions that, when called, produce action objects that follow the Flux Standard Action (FSA) format.authSlice.actions would be an object with login and logout as functions. You can use these functions to dispatch actions in your application:Each call to login or logout will create an action object with the corresponding type and payload, and then it will dispatch that action to the Redux store.
+
+
+forwardRef=> 
+            in hindi:suppose hme ek login and signup form chahiye ..toh uske liye ek input component bna dya  aur usee ko usename ke liye bhi use kr rhe ,usee ko password ke liye bhi use kr rhe ....jha pe bhi aapka page hoga wha pe toh saare inputs combined hoga .password bhi wahi hoga ..usename bhi whi hogaaur wha pe uski state ka access toh chchiye hoga ..kyunki ye jo components aap separately bnaoge usme toh state nhi rkhne waale ,wo toh individual componenet hai .toh compoent lhi aur hai ,use krhi aur ho rha hai toh component yha hai toh uski state toh yhi honi chahiye thi lekin uski state ka access toh yha pe chahiye aapko ..toh kuchh toh chahiye hoga ki mereko uska refernce mil jaaye ..toh uss componenet ka state toh chahiye hoga agar hm usee login form ya logout form me use krrhe ..toh isliye hi forward ref use hota hai           
+            im english=>Suppose we need a login and signup form, and for that, we've created an input component that we use for both the username and password. Wherever your page is, all the inputs will be combined there. The password and username will be the same. Since these components are created separately, they won't maintain their state individually. They are just components being used here, and their state should ideally be maintained here. So, we need something that gives us access to their state. Therefore, forwardRef is used.
+
+
+
+children props=>
+               The children prop is a special prop in React that represents the content between the opening and closing tags of a component.
+               In the context of a button, the children prop allows you to include content between the <Button> and </Button> tags. For example:
+               eg 
+                    Button>
+                     Click me
+                    /Button>
+                    
+                    
+                    const Button =({ch})=>{
+                          <   button>{ch</button>}
+                    }
+
+
+
+additional props =>
+                      <Button disabled>
+                        Click me
+                      </Button>
+                      disabled is passed as a additional prop
+                      bgcolor and type and such are default prop ,if value is passed it will accept the new value else will take the default value
+                      
+                      const Button = ({
+                        type = "button",
+                        bgColor = "bg-blue-500",
+                        textColor = "text-white",
+                        className = "",
+                        ...props
+                      }) => {
+                        return (
+                          <button
+                            className={ ${bgColor} ${textColor} ${className}`}
+                            {...props}
+                            type={`${type}`}
+                          >
+                            {children}
+                          </button>
+                        );
+                      };
+                      
+                      export default Button;
+
+
+
+
+important about Link=>
+                      pura url nhi dena hota ...jha aap ho wha se aap aage jaa skte ho
+                      in eng=>You don't have to provide the entire URL; you can navigate further from your current location
+                      When using useNavigate, you usually provide the relative path or a route name rather than the full URL. The navigation is then handled by the underlying router.
+
+
+
+clearing error state=>
+                      Before initiating a new action, such as submitting a form or attempting a login, it's a good practice to clear any previous error messages. This is done using the setError("") line in your example.
+                      Clearing previous errors provides a clean and user-friendly experience. It ensures that the user is not confused by old error messages when they try to take a new action. Without clearing the errors, the user might see stale error messages from a previous attempt, which could be misleading.
+
+
+
+handleSubmit=>
+               'handleSubmit: 'The term 'handleSubmit' has become a sort of a keyword because it comes to us from the form we are using, and it's a method in itself. So, please don't use the name 'handleSubmit' because the form, when completely submitted, triggers an actual event. This event is essential because wherever you place your input fields, etc., and use the register there, it automatically picks up the values you have written there. You don't have to manage the state of those values; it will automatically pick them up, and during the handleSubmit event, it will fetch all those values. That's why we use it.'
+
+
+
+
+register in react-hook-form=>
+                             iske andar unique name dena hai ...baaki addititonal checks dena hai .
