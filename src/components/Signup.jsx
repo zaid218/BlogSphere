@@ -12,7 +12,7 @@ function Signup() {
   const dispatch = useDispatch()
   const { register, handleSubmit } = useForm()
 
-  const create = async (data) => {
+  const create = async (data) => {//data comes from the form submitted by the user
     setError("")
     try {
       const userData = await authService.createAccount(data)

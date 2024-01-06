@@ -84,3 +84,44 @@ handleSubmit=>
 
 register in react-hook-form=>
                              iske andar unique name dena hai ...baaki addititonal checks dena hai .
+
+
+
+
+query/indexes=>
+               indexes nhi lgaae toh query nhi de skte ...queries apply krte list document use krte waqt.
+
+
+
+
+...props=>
+          to add new props
+
+
+
+
+//first we made appwrit/authSlice
+seconly         appwrite/config
+3rd store
+4th app.jsc
+5th container
+6th footer
+7th logo.jsx
+8th header
+9th Button.jsx
+10th input.jsx
+11.select
+12. postcard
+13.login component not page
+14.signup.jsx
+15.AuthLayout
+16.RtE
+17.postform
+18.signup page
+19.login page
+20.AddPost page
+21.AllPosts page
+22.EditPost page
+23.post
+24 main.jsx
+
