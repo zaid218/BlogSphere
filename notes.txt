@@ -125,3 +125,10 @@ seconly         appwrite/config
 23.post
 24 main.jsx
 
+
+
+everything is stored under the database named blog and under that under the collection named articles as '
+<h1><span style="color: rgb(53, 152, 219);"><em><strong>hi hey there.this is bird.</strong></em></span></h1>
+<p><span style="color: rgb(53, 152, 219);"><em><strong>ia m a zaid&nbsp;</strong></em></span></p>'
+
+and each article has attribute title ,content ,status,featuredImage,userId
