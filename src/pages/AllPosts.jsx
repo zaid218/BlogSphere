@@ -4,14 +4,14 @@ import appwriteService from "../appwrite/config";
 
 function AllPosts() {
     const [posts, setPosts] = useState([])
-    useEffect(() => { 
+    useEffect(() => {
         appwriteService.getPosts([]).then((posts) => {
             if (posts) {
                 setPosts(posts.documents)  //post is an array containing variable total and  array  named documents which contains all the information of the post
             }
         })
     }, [])
-    
+
 
     if (posts.length === 0) {
         return (
