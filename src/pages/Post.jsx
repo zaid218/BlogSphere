@@ -32,6 +32,8 @@ export default function Post() {
         });
     };
 
+    if (!isAuthor) return null; // If user is not the author, return null
+
     return post ? (
         <div className="py-8 bg-orange-300">
             <Container>
@@ -42,7 +44,7 @@ export default function Post() {
                         className="rounded-xl"
                     />
 
-                    {isAuthor && (
+                   
                         <div className="absolute right-6 top-6">
                             <Link to={`/edit-post/${post.$id}`}>
                                 <Button bgColor="bg-green-500" className="mr-3">
@@ -53,7 +55,7 @@ export default function Post() {
                                 Delete
                             </Button>
                         </div>
-                    )}
+                    
                 </div>
                 <div className="w-full mb-6">
                     <h1 className="text-2xl font-bold">{post.title}</h1>

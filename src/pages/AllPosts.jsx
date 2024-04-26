@@ -1,16 +1,21 @@
 import React, { useState, useEffect } from 'react'
 import { Container, PostCard } from '../components'
 import appwriteService from "../appwrite/config";
-
+import { useSelector } from "react-redux";
 function AllPosts() {
     const [posts, setPosts] = useState([])
+    const userData = useSelector((state) => state.auth.userData);
+
     useEffect(() => {
-        appwriteService.getPosts([]).then((posts) => {
-            if (posts) {
-                setPosts(posts.documents)  //post is an array containing variable total and  array  named documents which contains all the information of the post
-            }
-        })
-    }, [])
+        if (userData) {
+            appwriteService.getPosts([]).then((posts) => {
+                if (posts) {
+                    const filteredPosts = posts.documents.filter(post => post.userId === userData.$id);
+                    setPosts(filteredPosts);
+                }
+            });
+        }
+    }, [userData]);
 
 
     if (posts.length === 0) {
