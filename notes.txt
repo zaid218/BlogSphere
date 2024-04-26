@@ -132,3 +132,26 @@ everything is stored under the database named blog and under that under the coll
 <p><span style="color: rgb(53, 152, 219);"><em><strong>ia m a zaid&nbsp;</strong></em></span></p>'
 
 and each article has attribute title ,content ,status,featuredImage,userId
+
+
+IN THE .ENV 
+          for react app we start any variable name as REACT_APP_VARIABLENAME  and access it with process.env.REACT_APP_VARIABLENAME
+          for vite app,we start any variable name as VITE_VARIABLENAME and access it with import.meta.env.VITE_VARIABLENAME
+          if the environment variables are changed ,then restart the app
+
+
+getfilepreview=>returns the preview or the url of the file that can be used by the image tag
+
+
+name="content": This prop is also passed to the RTE component. It specifies the name of the form field associated with this Rich Text Editor. In React Hook Form, this name will be used to identify and manage the state of this field.
+control={control}: This prop is used to pass the control object from React Hook Form to the RTE component. The control object is used by React Hook Form to register and manage form fields.
+defaultValue={getValues("content")}: This prop sets the default value for the Rich Text Editor. The getValues function from React Hook Form is used to retrieve the current value of the "content" field from the form state and pass it as the default value to the Rich Text Editor.
+
+
+
+
+In the line <RTE label="Content : (in 1000 characters)" name="content" control={control} defaultValue={getValues("content")} />, the register method of React Hook Form is not directly used for a few reasons:
+
+Controller Component: The Controller component from React Hook Form is already being used inside the RTE component. The Controller component is specifically designed to integrate non-native form inputs, like third-party components or custom inputs (in this case, the TinyMCE Rich Text Editor), with React Hook Form. It handles the registration of the input with the form, as well as other aspects like validation and re-renders.
+Ref Prop: The register method is typically used to register native HTML input elements (like <input>, <select>, <textarea>) directly with React Hook Form by passing a ref to the input. However, in the case of custom components or third-party libraries (like TinyMCE), direct registration using register might not be possible or straightforward. Instead, the Controller component abstracts away this complexity and provides a convenient way to integrate such components with React Hook Form.
+Controlled Component: The Controller component wraps the TinyMCE Rich Text Editor, making it a controlled component. This means that React Hook Form controls the state of the editor, including its value. By passing control={control} to the Controller component, React Hook Form manages the state of the editor and handles updates to its value.
